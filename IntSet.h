@@ -105,7 +105,7 @@ public:
    bool contains(int anInt) const; //done
    bool isSubsetOf(const IntSet& otherIntSet) const; //done
    void DumpData(ostream& out) const; //done
-   IntSet unionWith(const IntSet& otherIntSet) const;
+   IntSet unionWith(const IntSet& otherIntSet) const; //done
    IntSet intersect(const IntSet& otherIntSet) const;
    IntSet subtract(const IntSet& otherIntSet) const;
    void reset(); //done

@@ -105,8 +105,21 @@ void IntSet::DumpData(ostream& out) const
 
 IntSet IntSet::unionWith(const IntSet& otherIntSet) const
 {
-   cout << "unionWith() is not implemented yet..." << endl;
-   return IntSet(); // dummy IntSet object returned
+   IntSet result;
+   if (size()+ otherIntSet.size()>MAX_SIZE)
+   {
+      cout<<"cannot combine sets"<<endl;
+      return result;
+   }
+   for (int i =0; i<size(); i++)
+   {
+      result.add(data[i]);
+   }
+   for (int i =0; i<otherIntSet.size(); i++)
+   {
+      result.add(otherIntSet.data[i]);
+   }
+   return result;
 }
 
 IntSet IntSet::intersect(const IntSet& otherIntSet) const
@@ -123,7 +136,7 @@ IntSet IntSet::subtract(const IntSet& otherIntSet) const
 
 void IntSet::reset()
 {
-   used =0;
+   used = 0;
 }
 
 bool IntSet::add(int anInt)
@@ -154,7 +167,7 @@ bool IntSet::remove(int anInt)
       }
    }
    
-   return false; // dummy value returned
+   return false; 
 }
 
 bool equal(const IntSet& is1, const IntSet& is2)
