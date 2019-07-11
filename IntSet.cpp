@@ -54,7 +54,7 @@ IntSet::IntSet():
 
 int IntSet::size() const
 {
-   return used; // dummy value returned
+   return used; 
 }
 
 
@@ -89,6 +89,7 @@ void IntSet::DumpData(ostream& out) const
       for (int i = 1; i < used; ++i)
          out << "  " << data[i];
    }
+   out<<endl;
 }
 
 IntSet IntSet::unionWith(const IntSet& otherIntSet) const
@@ -123,12 +124,25 @@ bool IntSet::add(int anInt)
    }
    data[used] = anInt;
    used++;
-   return true; // dummy value returned
+   return true; 
 }
 
 bool IntSet::remove(int anInt)
 {
-   cout << "remove() is not implemented yet..." << endl;
+   if (!contains(anInt))
+   {
+      cout<<"unable to remove "<<anInt<<endl;
+      return false;
+   }
+   for (int i =0; i<size(); i++)
+   {
+      if (data[i]==anInt)
+      {
+         removeByIndex(i);
+         return true;
+      }
+   }
+   
    return false; // dummy value returned
 }
 

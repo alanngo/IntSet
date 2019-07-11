@@ -6,12 +6,12 @@ using namespace std;
 int main()
 {
     IntSet x;
-    x.add(1);
-    x.add(2);
-    x.print();
-    x.reset();
-    x.print();
-    cout<<x.size()<<endl;
-
+    for (int i =0; i<10; i++)
+    {
+        x.add(i);
+    }
+    x.DumpData(cout);
+    x.remove(5);
+    x.DumpData(cout);
     return 0;
 }

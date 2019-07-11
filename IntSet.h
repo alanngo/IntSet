@@ -99,28 +99,36 @@ class IntSet
 {
 public:
    static const int MAX_SIZE = 10;
-   IntSet();
-   int size() const;
-   bool isEmpty() const;
-   bool contains(int anInt) const;
+   IntSet(); //done
+   int size() const; //done
+   bool isEmpty() const; //done
+   bool contains(int anInt) const; //done
    bool isSubsetOf(const IntSet& otherIntSet) const;
-   void DumpData(std::ostream& out) const;
+   void DumpData(std::ostream& out) const; //done
    IntSet unionWith(const IntSet& otherIntSet) const;
    IntSet intersect(const IntSet& otherIntSet) const;
    IntSet subtract(const IntSet& otherIntSet) const;
-   void reset();
-   bool add(int anInt);
-   bool remove(int anInt);
+   void reset(); //done
+   bool add(int anInt); //done
+   bool remove(int anInt); //done
+
 
    //additional functions
-   void print()
-   {
-      for (int i =0; i<used; i++)
+   protected:
+      bool removeByIndex(int n)
       {
-         cout<<data[i]<<" ";
+         bool valid = (used>=0) && (used <= MAX_SIZE);
+         if (valid)
+         {
+            for (int i =n; i<used; i++)
+            {
+               data[i]=data[i+1];
+            }
+            used--;
+         }
+         return valid;      
       }
-      cout<<endl;
-   }
+
 
 private:
    int data[MAX_SIZE];
