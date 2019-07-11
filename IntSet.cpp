@@ -124,14 +124,34 @@ IntSet IntSet::unionWith(const IntSet& otherIntSet) const
 
 IntSet IntSet::intersect(const IntSet& otherIntSet) const
 {
-   cout << "intersect() is not implemented yet..." << endl;
-   return IntSet(); // dummy IntSet object returned
+   IntSet result;
+   for (int i =0; i<size(); i++)
+   {
+      if (otherIntSet.contains(data[i]))
+      {
+         result.add(data[i]);
+      }
+   }
+   return result; 
 }
 
 IntSet IntSet::subtract(const IntSet& otherIntSet) const
 {
-   cout << "subtract() is not implemented yet..." << endl;
-   return IntSet(); // dummy IntSet object returned
+   IntSet result = unionWith(otherIntSet);
+   for (int i =0; i<size(); i++)
+   {
+      for (int j =0; j<otherIntSet.size(); j++)
+      {
+         if (data[i]==otherIntSet.data[j])
+         {
+            result.remove(data[i]);
+            result.remove(otherIntSet.data[j]);
+         }
+      }
+   }
+   
+   //TODO
+   return result; 
 }
 
 void IntSet::reset()
@@ -166,7 +186,6 @@ bool IntSet::remove(int anInt)
          return true;
       }
    }
-   
    return false; 
 }
 

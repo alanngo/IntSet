@@ -106,8 +106,8 @@ public:
    bool isSubsetOf(const IntSet& otherIntSet) const; //done
    void DumpData(ostream& out) const; //done
    IntSet unionWith(const IntSet& otherIntSet) const; //done
-   IntSet intersect(const IntSet& otherIntSet) const;
-   IntSet subtract(const IntSet& otherIntSet) const;
+   IntSet intersect(const IntSet& otherIntSet) const; //done
+   IntSet subtract(const IntSet& otherIntSet) const; //done
    void reset(); //done
    bool add(int anInt); //done
    bool remove(int anInt); //done
