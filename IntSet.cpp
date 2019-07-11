@@ -49,7 +49,7 @@ using namespace std;
 IntSet::IntSet():
    used(0)
 {
-   cout << "initializing" << endl;
+   cout << "initializing..." << endl;
 }
 
 int IntSet::size() const
@@ -60,7 +60,7 @@ int IntSet::size() const
 
 bool IntSet::isEmpty() const
 {
-   return size()==0; // dummy value returned
+   return size()==0; 
 }
 
 bool IntSet::contains(int anInt) const
@@ -77,8 +77,19 @@ bool IntSet::contains(int anInt) const
 
 bool IntSet::isSubsetOf(const IntSet& otherIntSet) const
 {
-   cout << "isSubsetOf() is not implemented yet..." << endl;
-   return false; // dummy value returned
+   int count =0;
+   if(otherIntSet.size() < size())
+   {
+      return false;
+   }
+   for (int i =0; i<size(); i++)
+   {
+      if (otherIntSet.contains(data[i]))
+      {
+         count++;
+      }
+   }
+   return count==size(); 
 }
 
 void IntSet::DumpData(ostream& out) const

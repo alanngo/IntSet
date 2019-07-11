@@ -103,8 +103,8 @@ public:
    int size() const; //done
    bool isEmpty() const; //done
    bool contains(int anInt) const; //done
-   bool isSubsetOf(const IntSet& otherIntSet) const;
-   void DumpData(std::ostream& out) const; //done
+   bool isSubsetOf(const IntSet& otherIntSet) const; //done
+   void DumpData(ostream& out) const; //done
    IntSet unionWith(const IntSet& otherIntSet) const;
    IntSet intersect(const IntSet& otherIntSet) const;
    IntSet subtract(const IntSet& otherIntSet) const;
