@@ -111,7 +111,7 @@ public:
    void reset(); //done
    bool add(int anInt); //done
    bool remove(int anInt); //done
-
+   
 
    //additional functions
    protected:
@@ -134,7 +134,7 @@ private:
    int data[MAX_SIZE];
    int used;
 };
-
 bool equal(const IntSet& is1, const IntSet& is2);
+
 
 #endif

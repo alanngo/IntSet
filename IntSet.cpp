@@ -43,6 +43,7 @@
 
 #include "IntSet.h"
 #include <iostream>
+#include <sstream>
 #include <cassert>
 using namespace std;
 
@@ -189,8 +190,15 @@ bool IntSet::remove(int anInt)
    return false; 
 }
 
-bool equal(const IntSet& is1, const IntSet& is2)
+bool  equal(const IntSet& is1, const IntSet& is2)
 {
-   cout << "equal() is not implemented yet..." << endl;
-   return false; // dummy value returned
+   if (is1.size()!=is2.size())
+   {
+      return false;
+   }
+   if (is1.isEmpty() && is2.isEmpty())
+   {
+      return true;
+   }
+   return is1.isSubsetOf(is2)&&is2.isSubsetOf(is1);
 }
