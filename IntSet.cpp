@@ -150,8 +150,6 @@ IntSet IntSet::subtract(const IntSet& otherIntSet) const
          }
       }
    }
-   
-   //TODO
    return result; 
 }
 
